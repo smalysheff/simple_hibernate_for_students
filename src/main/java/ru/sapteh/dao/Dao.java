@@ -5,7 +5,7 @@ import java.util.List;
 public interface Dao <Entity, Key>{
     Entity findById(Key key);
     List<Entity> findAll();
-    void sava(Entity entity);
+    void save(Entity entity);
     void update(Entity entity);
-    void deleteById(Key key);
+    void deleteById(Entity entity);
 }

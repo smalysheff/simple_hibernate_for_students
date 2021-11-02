@@ -30,17 +30,30 @@ public class EmployeeDaoImpl implements Dao<Employee, Integer> {
     }
 
     @Override
-    public void sava(Employee employee) {
+    public void save(Employee employee) {
+        try(Session session = factory.openSession()) {
+            session.beginTransaction();
+            session.save(employee);
+            session.getTransaction().commit();
+        }
 
     }
 
     @Override
     public void update(Employee employee) {
-
+        try(Session session = factory.openSession()) {
+            session.beginTransaction();
+            session.update(employee);
+            session.getTransaction().commit();
+        }
     }
 
     @Override
-    public void deleteById(Integer integer) {
-
+    public void deleteById(Employee employee) {
+        try(Session session = factory.openSession()) {
+            session.beginTransaction();
+            session.delete(employee);
+            session.getTransaction().commit();
+        }
     }
 }
